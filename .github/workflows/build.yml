@@ -1,0 +1,62 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  check-wormcore:
+    name: Validate WormCore (no UnityEngine)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for UnityEngine references in WormCore
+        shell: pwsh
+        run: |
+          $found = $false
+          Get-ChildItem -Path Assets/Core -Filter "*.cs" -Recurse | ForEach-Object {
+            $content = Get-Content -Path $_.FullName -Raw
+            if ($content -match "using UnityEngine") {
+              Write-Host "FAIL: $($_.Name) contains 'using UnityEngine'" -ForegroundColor Red
+              $found = $true
+            }
+          }
+          if ($found) { exit 1 } else { Write-Host "PASSED" -ForegroundColor Green }
+
+  build-android:
+    name: Build Android
+    needs: check-wormcore
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: game-ci/unity-builder@v5
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+          unityVersion: 6000.0.78f1
+          buildMethod: Bootstrapper.BuildAndroid
+
+  build-ios:
+    name: Build iOS
+    needs: check-wormcore
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: game-ci/unity-builder@v5
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: iOS
+          unityVersion: 6000.0.78f1
+          buildMethod: Bootstrapper.BuildiOS

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
+  <string name="gcm_defaultSenderId" translatable="false">857181771334</string>
+  <string name="google_storage_bucket" translatable="false">slitherroyale-adb04.firebasestorage.app</string>
+  <string name="project_id" translatable="false">slitherroyale-adb04</string>
+  <string name="google_api_key" translatable="false">AIzaSyACmpZffAuwW_RvwHW4I_j_iN0gbZIBn9s</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyACmpZffAuwW_RvwHW4I_j_iN0gbZIBn9s</string>
+  <string name="google_app_id" translatable="false">1:857181771334:android:e509d21a7c695e20fa9c47</string>
+</resources>

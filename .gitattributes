@@ -1,0 +1,30 @@
+# Git LFS patterns for binary assets
+Assets/**/*.png filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.jpeg filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.psd filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.wav filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.mp3 filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.ogg filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.aiff filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.tga filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.exr filter=lfs diff=lfs merge=lfs -text
+# Unity meta files are text
+*.meta text
+# Text files
+*.cs text
+*.shader text
+*.json text
+*.xml text
+*.txt text
+*.md text
+*.asmdef text
+*.yml text
+*.yaml text
+Assets/**/*.a filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.so filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.bundle filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.aar filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.dll filter=lfs diff=lfs merge=lfs -text
+Assets/**/*.pdb filter=lfs diff=lfs merge=lfs -text

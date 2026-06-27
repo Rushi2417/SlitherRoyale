@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "857181771334",
+    "project_id": "slitherroyale-adb04",
+    "storage_bucket": "slitherroyale-adb04.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857181771334:ios:e2a7804093f98b66fa9c47",
+        "android_client_info": {
+          "package_name": "com.slitherroyale.game"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2-cTp8URAY6oVTw4TXDdRJdpOvaO4opw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
