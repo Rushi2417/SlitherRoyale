@@ -1,0 +1,48 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Visual Studio / Rider
+*.csproj
+*.sln
+*.suo
+*.user
+*.userosscache
+*.userprefs
+.vs/
+.idea/
+
+# VSCode
+.vscode/
+
+# JetBrains
+*.DotSettings.user
+
+# macOS
+.DS_Store
+
+# Git LFS pointer files (will be tracked by LFS)
+*.png.meta
+*.jpg.meta
+*.jpeg.meta
+*.psd.meta
+*.fbx.meta
+*.wav.meta
+*.mp3.meta
+*.ogg.meta
+
+# Unity temporary build artifacts
+.utmp/
+
+# Asset Store tools
+*.asset.meta
+
+# PlayFab / Firebase config (contains keys)
+Assets/Resources/PlayFabSharedSettings.asset
+Assets/Resources/GoogleService-Info.plist
+Assets/Resources/google-services.json
