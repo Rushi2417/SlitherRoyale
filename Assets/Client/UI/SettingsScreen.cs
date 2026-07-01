@@ -10,7 +10,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Settings Screen.
-    /// Doc 05 §3.10: Audio sliders, controls (colorblind, graphics), account linking, privacy/legal.
+    /// Doc 05 Â§3.10: Audio sliders, controls (colorblind, graphics), account linking, privacy/legal.
     /// </summary>
     public class SettingsScreen : UIScreen
     {
@@ -41,7 +41,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.08f));
             topGrad.raycastTarget = false;
 
-            // ── Header ──
+            // â”€â”€ Header â”€â”€
             var header = AddImage("Header",
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(0f, -110f), Vector2.zero,
@@ -51,7 +51,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button
-            MakeBtn("← BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeBtn("â† BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(110f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 16, header.transform,
                 () => {
@@ -59,7 +59,7 @@ namespace SlitherRoyale.Client.UI
                     ScreenManager.Instance.NavigateTo<HomeScreen>();
                 });
 
-            // ── Scrollable Container for Settings ──
+            // â”€â”€ Scrollable Container for Settings â”€â”€
             var scrollGo = new GameObject("SettingsScrollView");
             scrollGo.transform.SetParent(transform, false);
             var srt = scrollGo.AddComponent<RectTransform>();
@@ -392,7 +392,7 @@ namespace SlitherRoyale.Client.UI
             // This satisfies GDPR right-to-erasure and Apple/Google store requirements.
             if (PlayFabBootstrap.PlayFabId == null)
             {
-                _deleteFeedback.text = "Not logged in — nothing to delete.";
+                _deleteFeedback.text = "Not logged in â€” nothing to delete.";
                 _deleteFeedback.color = FogGrey;
                 return;
             }
@@ -420,11 +420,11 @@ namespace SlitherRoyale.Client.UI
             if (ok)
                 Debug.Log("[Settings] Account deletion request sent to server.");
 
-            // Navigate away — account is gone
+            // Navigate away â€” account is gone
             ScreenManager.Instance.NavigateTo<SplashScreen>();
         }
 
-        // ── Card Builder helpers ──
+        // â”€â”€ Card Builder helpers â”€â”€
 
         private Image BuildSectionCard(string name, float height, Transform parent)
         {
@@ -462,7 +462,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

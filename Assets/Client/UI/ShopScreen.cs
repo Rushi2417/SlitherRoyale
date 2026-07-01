@@ -9,7 +9,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Shop Screen.
-    /// Doc 05 §3.8: Currency display, tabs/items scrollable list, IAP and cosmetics purchase.
+    /// Doc 05 Â§3.8: Currency display, tabs/items scrollable list, IAP and cosmetics purchase.
     /// </summary>
     public class ShopScreen : UIScreen
     {
@@ -36,7 +36,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.08f));
             topGrad.raycastTarget = false;
 
-            // ── Header ──
+            // â”€â”€ Header â”€â”€
             var header = AddImage("Header",
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(0f, -110f), Vector2.zero,
@@ -46,7 +46,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button
-            MakeBtn("← BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeBtn("â† BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(110f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 16, header.transform,
                 () => {
@@ -54,7 +54,7 @@ namespace SlitherRoyale.Client.UI
                     ScreenManager.Instance.NavigateTo<HomeScreen>();
                 });
 
-            // ── Currency HUD Row ──
+            // â”€â”€ Currency HUD Row â”€â”€
             var hud = AddImage("Hud",
                 new Vector2(0.05f, 1f), new Vector2(0.95f, 1f),
                 new Vector2(0f, -180f), new Vector2(0f, -120f),
@@ -63,7 +63,7 @@ namespace SlitherRoyale.Client.UI
             hud.type   = Image.Type.Sliced;
 
             // Coins
-            AddAnchoredText("🪙", GoldYolk, 22, FontStyle.Bold,
+            AddAnchoredText("ðŸª™", GoldYolk, 22, FontStyle.Bold,
                 new Vector2(0f, 0f), new Vector2(0.2f, 1f),
                 Vector2.zero, Vector2.zero, hud.transform);
             _coinsLabel = AddAnchoredText("---", GoldYolk, 18, FontStyle.Bold,
@@ -71,14 +71,14 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.zero, hud.transform);
 
             // Gems
-            AddAnchoredText("💎", BioMint, 22, FontStyle.Bold,
+            AddAnchoredText("ðŸ’Ž", BioMint, 22, FontStyle.Bold,
                 new Vector2(0.5f, 0f), new Vector2(0.7f, 1f),
                 Vector2.zero, Vector2.zero, hud.transform);
             _gemsLabel = AddAnchoredText("---", BioMint, 18, FontStyle.Bold,
                 new Vector2(0.7f, 0f), new Vector2(1f, 1f),
                 Vector2.zero, Vector2.zero, hud.transform);
 
-            // ── Scroll View for Items ──
+            // â”€â”€ Scroll View for Items â”€â”€
             var scrollGo = new GameObject("ScrollView");
             scrollGo.transform.SetParent(transform, false);
             var srt = scrollGo.AddComponent<RectTransform>();
@@ -172,7 +172,7 @@ namespace SlitherRoyale.Client.UI
             _itemRows.Add(row);
 
             // Icon Prefix based on type
-            string iconStr = item.Category == "Skin" ? "🎨" : item.Id.Contains("pass") ? "👑" : "💎";
+            string iconStr = item.Category == "Skin" ? "ðŸŽ¨" : item.Id.Contains("pass") ? "ðŸ‘‘" : "ðŸ’Ž";
             AddAnchoredText(iconStr, Color.white, 30, FontStyle.Normal,
                 new Vector2(0f, 0f), new Vector2(0.15f, 1f),
                 Vector2.zero, Vector2.zero, row.transform);
@@ -190,7 +190,7 @@ namespace SlitherRoyale.Client.UI
             // Purchase Button on right
             bool hasCoinCost = item.CoinCost > 0;
             bool hasGemCost = item.GemCost > 0;
-            string costStr = hasGemCost ? $"{item.GemCost} 💎" : hasCoinCost ? $"{item.CoinCost} 🪙" : "FREE";
+            string costStr = hasGemCost ? $"{item.GemCost} ðŸ’Ž" : hasCoinCost ? $"{item.CoinCost} ðŸª™" : "FREE";
             Color btnColor = hasGemCost ? BioMint : hasCoinCost ? GoldYolk : ArcViolet;
 
             var buyBtnGo = new GameObject("BuyBtn");
@@ -239,7 +239,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

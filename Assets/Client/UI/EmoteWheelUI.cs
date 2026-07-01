@@ -6,7 +6,7 @@ using SlitherRoyale.Client.Audio;
 namespace SlitherRoyale.Client.UI
 {
     /// <summary>
-    /// In-match emote wheel — doc 02 LAUNCH feature.
+    /// In-match emote wheel â€” doc 02 LAUNCH feature.
     /// 6 emotes in a radial layout, shown on button hold.
     /// Emotes are purely visual (text/icon burst above worm).
     /// </summary>
@@ -14,7 +14,7 @@ namespace SlitherRoyale.Client.UI
     {
         public static EmoteWheelUI Instance { get; private set; }
 
-        private static readonly string[] EmoteLabels  = { "😂", "👍", "💀", "🔥", "👑", "🐍" };
+        private static readonly string[] EmoteLabels  = { "ðŸ˜‚", "ðŸ‘", "ðŸ’€", "ðŸ”¥", "ðŸ‘‘", "ðŸ" };
         private static readonly string[] EmoteNames   = { "LOL", "GG", "RIP", "LIT", "KING", "SNEK" };
         private static readonly Color[]  EmoteColors  =
         {
@@ -49,7 +49,7 @@ namespace SlitherRoyale.Client.UI
 
         private void BuildWheel(Transform canvasRoot)
         {
-            // Wheel container — center screen
+            // Wheel container â€” center screen
             _wheelRoot = new GameObject("EmoteWheel");
             _wheelRoot.transform.SetParent(canvasRoot, false);
             var rootRT = _wheelRoot.AddComponent<RectTransform>();
@@ -96,7 +96,7 @@ namespace SlitherRoyale.Client.UI
                 _sliceLabels[i].text = EmoteLabels[i];
                 _sliceLabels[i].fontSize = 22;
                 _sliceLabels[i].alignment = TextAnchor.MiddleCenter;
-                _sliceLabels[i].font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+                _sliceLabels[i].font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
                 _sliceLabels[i].color = Color.white;
             }
 
@@ -186,7 +186,7 @@ namespace SlitherRoyale.Client.UI
                 _calloutText = txt.AddComponent<Text>();
                 _calloutText.fontSize = 36;
                 _calloutText.alignment = TextAnchor.MiddleCenter;
-                _calloutText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+                _calloutText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             }
 
             _calloutText.text = emote;

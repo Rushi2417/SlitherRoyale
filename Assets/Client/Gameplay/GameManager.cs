@@ -231,7 +231,7 @@ namespace SlitherRoyale.Client.Gameplay
                     {
                         Kills = _comboSystem.GetCurrentStreak(LocalPlayerId),
                         Score = _allWorms[0].Mass * 10f,
-                        DeathReason = "VICTORY — Last worm standing!",
+                        DeathReason = "VICTORY â€” Last worm standing!",
                         Rank = 1,
                     };
                     if (bootstrapper != null) Destroy(gameObject);
@@ -302,7 +302,7 @@ namespace SlitherRoyale.Client.Gameplay
                 _allWorms[i] = ws;
             }
 
-            // Boost pellet drops — drop a small pellet behind boosting worms
+            // Boost pellet drops â€” drop a small pellet behind boosting worms
             if (_allWorms.Count > 0 && _allWorms[0].IsBoosting && !_allWorms[0].IsDead)
             {
                 _boostPelletTimer -= Time.deltaTime;
@@ -756,7 +756,7 @@ namespace SlitherRoyale.Client.Gameplay
             }
         }
 
-        // ─── HUD ──────────────────────────────────────────────────────────────
+        // â”€â”€â”€ HUD â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         private void CreateHUD()
         {
@@ -766,17 +766,17 @@ namespace SlitherRoyale.Client.Gameplay
             var canvas = hudCanvas != null ? hudCanvas : FindFirstObjectByType<Canvas>();
             if (canvas == null) return;
 
-            // Danger vignette — initialize first so it draws behind all other HUD elements
+            // Danger vignette â€” initialize first so it draws behind all other HUD elements
             _dangerVignette = canvas.gameObject.AddComponent<DangerVignetteUI>();
             _dangerVignette.Initialize(canvas.transform);
 
             CreateHUDPanel(canvas.transform);
 
-            // Minimap — bottom right
+            // Minimap â€” bottom right
             _minimap = canvas.gameObject.AddComponent<MinimapUI>();
             _minimap.Initialize(arenaRadius, canvas.transform);
 
-            // Boost button — bottom center, large thumb target
+            // Boost button â€” bottom center, large thumb target
             CreateBoostButton(canvas.transform);
         }
 
@@ -841,11 +841,11 @@ namespace SlitherRoyale.Client.Gameplay
             var barImg = barGo.AddComponent<Image>();
             barImg.color = new Color(0.04f, 0.06f, 0.09f, 0.75f);
 
-            _hudMassLabel = CreateHUDText(barGo.transform, "⬡ Mass: 10", new Color(0.42f, 0.31f, 1f), 16,
+            _hudMassLabel = CreateHUDText(barGo.transform, "â¬¡ Mass: 10", new Color(0.42f, 0.31f, 1f), 16,
                 new Vector2(-80f, 12f));
-            _hudScoreLabel = CreateHUDText(barGo.transform, "⬆ Score: 0", new Color(1f, 0.79f, 0.3f), 16,
+            _hudScoreLabel = CreateHUDText(barGo.transform, "â¬† Score: 0", new Color(1f, 0.79f, 0.3f), 16,
                 new Vector2(80f, 12f));
-            _hudKillsLabel = CreateHUDText(barGo.transform, "☠ Kills: 0", new Color(1f, 0.42f, 0.36f), 14,
+            _hudKillsLabel = CreateHUDText(barGo.transform, "â˜  Kills: 0", new Color(1f, 0.42f, 0.36f), 14,
                 new Vector2(0f, -8f));
 
             // Boost bar background
@@ -911,7 +911,7 @@ namespace SlitherRoyale.Client.Gameplay
             txt.color = color;
             txt.fontSize = size;
             txt.alignment = TextAnchor.MiddleCenter;
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             return txt;
         }
 
@@ -922,11 +922,11 @@ namespace SlitherRoyale.Client.Gameplay
 
             // BUG-16 FIX: show lifetime total kills, not 10-second combo window streak
             if (_hudMassLabel != null)
-                _hudMassLabel.text = $"⬡ Mass: {player.Mass:0}";
+                _hudMassLabel.text = $"â¬¡ Mass: {player.Mass:0}";
             if (_hudScoreLabel != null)
-                _hudScoreLabel.text = $"⬆ Score: {player.Mass * 10f:0}";
+                _hudScoreLabel.text = $"â¬† Score: {player.Mass * 10f:0}";
             if (_hudKillsLabel != null)
-                _hudKillsLabel.text = $"☠ Kills: {_totalKills}";
+                _hudKillsLabel.text = $"â˜  Kills: {_totalKills}";
 
             if (_hudBoostBar != null)
             {
@@ -1013,7 +1013,7 @@ namespace SlitherRoyale.Client.Gameplay
             }
         }
 
-        // ─── Map Visuals ──────────────────────────────────────────────────────
+        // â”€â”€â”€ Map Visuals â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         private void CreateDarknessOverlay()
         {
@@ -1078,7 +1078,7 @@ namespace SlitherRoyale.Client.Gameplay
                 if (_giantPellets[i] == null) _giantPellets.RemoveAt(i);
 
             // BUG-07 FIX: Use a timer instead of frame-rate-dependent Random.value < 0.01f.
-            // At 60fps the old code triggered ~36% per second — now respawns one every 8s.
+            // At 60fps the old code triggered ~36% per second â€” now respawns one every 8s.
             if (_giantPellets.Count < mapConfig.giantPelletCount)
             {
                 _giantPelletRespawnTimer -= Time.deltaTime;

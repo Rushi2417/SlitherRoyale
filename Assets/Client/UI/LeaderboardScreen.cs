@@ -41,7 +41,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.08f));
             topGrad.raycastTarget = false;
 
-            // ── Header ──
+            // â”€â”€ Header â”€â”€
             var header = AddImage("Header",
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(0f, -110f), Vector2.zero,
@@ -51,7 +51,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button
-            MakeChildBtn("← BACK",
+            MakeChildBtn("â† BACK",
                 new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(110f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 16, header.transform,
@@ -60,7 +60,7 @@ namespace SlitherRoyale.Client.UI
                     ScreenManager.Instance.NavigateTo<HomeScreen>();
                 });
 
-            // ── Tabs Row ──
+            // â”€â”€ Tabs Row â”€â”€
             var tabsRow = AddImage("TabsRow",
                 new Vector2(0.05f, 1f), new Vector2(0.95f, 1f),
                 new Vector2(0f, -180f), new Vector2(0f, -120f),
@@ -98,7 +98,7 @@ namespace SlitherRoyale.Client.UI
             _friendsBtnTxt = MakeChildText("FRIENDS", FogGrey, 15, FontStyle.Bold,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, fBtnGo.transform);
 
-            // ── Scroll List ──
+            // â”€â”€ Scroll List â”€â”€
             var scrollGo = new GameObject("LeaderboardScrollView");
             scrollGo.transform.SetParent(transform, false);
             var srt = scrollGo.AddComponent<RectTransform>();
@@ -170,14 +170,14 @@ namespace SlitherRoyale.Client.UI
                     : await PlayFabEconomy.GetGlobalLeaderboardAsync();
 
                 if (entries == null || entries.Count == 0)
-                    BuildEmptyRow("No rankings yet — play a match to get on the board!");
+                    BuildEmptyRow("No rankings yet â€” play a match to get on the board!");
                 else
                     foreach (var e in entries) BuildEntryRow(e);
             }
             catch (Exception ex)
             {
                 Debug.LogWarning($"[LeaderboardScreen] Refresh: {ex.Message}");
-                BuildEmptyRow("Offline — connect to the internet to view rankings.");
+                BuildEmptyRow("Offline â€” connect to the internet to view rankings.");
             }
         }
 
@@ -243,7 +243,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.zero, row.transform);
         }
 
-        // ── Local layout helpers ─────────────────────────────────────────────
+        // â”€â”€ Local layout helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         private Text MakeChildText(string content, Color color, int size, FontStyle style,
             Vector2 ancMin, Vector2 ancMax, Vector2 offMin, Vector2 offMax, Transform parent)
@@ -254,7 +254,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font      = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font      = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text      = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style;  txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

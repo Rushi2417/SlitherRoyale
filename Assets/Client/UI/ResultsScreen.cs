@@ -9,7 +9,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Post-match Results screen.
-    /// Doc 05 §3.6: final length, kills, time, rewards count-up, double-coins ad, rematch/home.
+    /// Doc 05 Â§3.6: final length, kills, time, rewards count-up, double-coins ad, rematch/home.
     /// </summary>
     public class ResultsScreen : UIScreen
     {
@@ -45,7 +45,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(EmberCoral.r, EmberCoral.g, EmberCoral.b, 0.06f));
             topGrad.raycastTarget = false;
 
-            // ── Card ─────────────────────────────────────────────────────────
+            // â”€â”€ Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             var card = AddImage("Card",
                 new Vector2(0.05f, 0.5f), new Vector2(0.95f, 1f),
                 new Vector2(0f, -760f), new Vector2(0f, -110f),
@@ -70,9 +70,9 @@ namespace SlitherRoyale.Client.UI
             div.AddComponent<Image>().color = DividerCol;
 
             // Stats row
-            _killsText = AddChildText("Kills", "⚔ 0 Kills", ArcViolet, 20, FontStyle.Bold,
+            _killsText = AddChildText("Kills", "âš” 0 Kills", ArcViolet, 20, FontStyle.Bold,
                 new Vector2(0f, 0.60f), new Vector2(0.5f, 0.76f), card.transform);
-            _scoreText = AddChildText("Score", "📏 0", FogGrey, 20, FontStyle.Normal,
+            _scoreText = AddChildText("Score", "ðŸ“ 0", FogGrey, 20, FontStyle.Normal,
                 new Vector2(0.5f, 0.60f), new Vector2(1f, 0.76f), card.transform);
 
             // Rewards section
@@ -89,20 +89,20 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0.05f, 0.22f), new Vector2(0.95f, 0.35f),
                 GoldYolk, DoubleRewards, card.transform);
             _doubleBtnLabel = _doubleBtn.GetComponentInChildren<Text>();
-            if (_doubleBtnLabel) _doubleBtnLabel.text = "📺  WATCH AD — DOUBLE COINS";
+            if (_doubleBtnLabel) _doubleBtnLabel.text = "ðŸ“º  WATCH AD â€” DOUBLE COINS";
 
             // Rematch + Home
             _rematchBtn = MakeCardButton("RematchBtn",
                 new Vector2(0.05f, 0.08f), new Vector2(0.5f, 0.21f),
                 ArcViolet, Rematch, card.transform);
             var remLbl = _rematchBtn.GetComponentInChildren<Text>();
-            if (remLbl) remLbl.text = "↺  REMATCH";
+            if (remLbl) remLbl.text = "â†º  REMATCH";
 
             _homeBtn = MakeCardButton("HomeBtn",
                 new Vector2(0.52f, 0.08f), new Vector2(0.95f, 0.21f),
                 new Color(0.14f, 0.16f, 0.24f), GoHome, card.transform);
             var homeLbl = _homeBtn.GetComponentInChildren<Text>();
-            if (homeLbl) { homeLbl.text = "🏠  HOME"; homeLbl.color = FogGrey; }
+            if (homeLbl) { homeLbl.text = "ðŸ   HOME"; homeLbl.color = FogGrey; }
         }
 
         public override async void OnEnter(ScreenManager sm, object data)
@@ -122,14 +122,14 @@ namespace SlitherRoyale.Client.UI
                                     d.Kills >= 2 ? ArcViolet : EmberCoral;
 
                 _reasonText.text = d.DeathReason ?? "";
-                _killsText.text  = $"⚔ {d.Kills} Kill{(d.Kills == 1 ? "" : "s")}";
-                _scoreText.text  = $"📏 {d.Score:N0}";
+                _killsText.text  = $"âš” {d.Kills} Kill{(d.Kills == 1 ? "" : "s")}";
+                _scoreText.text  = $"ðŸ“ {d.Score:N0}";
 
                 _baseCoins = isVictory ? 75 : d.Kills >= 5 ? 45 : d.Kills >= 2 ? 25 : 10;
                 _baseBPXP  = isVictory ? 200 : d.Kills >= 5 ? 150 : d.Kills >= 2 ? 80 : 40;
 
                 _doubleBtn.interactable = true;
-                if (_doubleBtnLabel) _doubleBtnLabel.text = "📺  WATCH AD — DOUBLE COINS";
+                if (_doubleBtnLabel) _doubleBtnLabel.text = "ðŸ“º  WATCH AD â€” DOUBLE COINS";
 
                 // Count-up animation
                 StartCoroutine(CountUp(_baseCoins, _baseBPXP));
@@ -169,7 +169,7 @@ namespace SlitherRoyale.Client.UI
                     _baseCoins *= 2; _baseBPXP *= 2;
                     _rewardsDoubled = true;
                     StartCoroutine(CountUp(_baseCoins, _baseBPXP));
-                    if (_doubleBtnLabel) _doubleBtnLabel.text = "✓  DOUBLED!";
+                    if (_doubleBtnLabel) _doubleBtnLabel.text = "âœ“  DOUBLED!";
                 },
                 onFailed: _ => { _doubleBtn.interactable = true; });
         }
@@ -187,7 +187,7 @@ namespace SlitherRoyale.Client.UI
             ScreenManager.Instance.NavigateTo<HomeScreen>();
         }
 
-        // ── Helpers ───────────────────────────────────────────────────────────
+        // â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         private Text AddChildText(string name, string content, Color color, int size,
             FontStyle style, Vector2 ancMin, Vector2 ancMax, Transform parent)
@@ -198,7 +198,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

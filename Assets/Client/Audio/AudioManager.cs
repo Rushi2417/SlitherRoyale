@@ -59,7 +59,7 @@ namespace SlitherRoyale.Client.Audio
         {
             if (Instance != null && Instance != this) { Destroy(gameObject); return; }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (transform.parent == null) DontDestroyOnLoad(gameObject);
             _sampleRate = AudioSettings.outputSampleRate;
             BuildSources();
             PrewarmClips();

@@ -14,7 +14,7 @@ namespace SlitherRoyale.Client.Gameplay
         private static readonly Color BioMint     = new Color(0.25f, 0.88f, 0.77f);
         private static readonly Color EmberCoral  = new Color(1f,   0.42f, 0.36f);
 
-        // Cached gradients — rebuilt only when boost state changes (not every frame)
+        // Cached gradients â€” rebuilt only when boost state changes (not every frame)
         private Gradient _normalGradient;
         private Gradient _boostGradient;
         private bool _lastBoostState = false;
@@ -65,12 +65,12 @@ namespace SlitherRoyale.Client.Gameplay
             _nameLabel.fontSize = 11;
             _nameLabel.color = new Color(1f, 1f, 1f, 0.85f);
             _nameLabel.alignment = TextAnchor.MiddleCenter;
-            _nameLabel.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            _nameLabel.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         }
 
         public void UpdateFromState(WormState state)
         {
-            // ── Boost trail ──────────────────────────────────────────────────
+            // â”€â”€ Boost trail â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (boostTrail != null)
             {
                 var emission = boostTrail.emission;
@@ -83,7 +83,7 @@ namespace SlitherRoyale.Client.Gameplay
                 }
             }
 
-            // ── Early out if no segments ──────────────────────────────────────
+            // â”€â”€ Early out if no segments â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (state.Segments == null || state.Segments.Count == 0)
             {
                 lineRenderer.positionCount = 0;
@@ -91,22 +91,22 @@ namespace SlitherRoyale.Client.Gameplay
                 return;
             }
 
-            // ── Body width scales with mass ───────────────────────────────────
+            // â”€â”€ Body width scales with mass â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             float bodyWidth = Mathf.Lerp(4f, 14f, state.Mass / 300f);
             lineRenderer.startWidth = bodyWidth;
             lineRenderer.endWidth   = bodyWidth * 0.45f;
 
-            // ── Set segment positions ─────────────────────────────────────────
+            // â”€â”€ Set segment positions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             int maxPoints = Mathf.Min(state.Segments.Count, 200);
             lineRenderer.positionCount = maxPoints + 1;
             lineRenderer.SetPosition(0, new Vector3(state.X, state.Y, 0f));
             for (int i = 0; i < maxPoints; i++)
                 lineRenderer.SetPosition(i + 1, new Vector3(state.Segments[i].X, state.Segments[i].Y, 0f));
 
-            // ── Apply cached gradient (only swap when boost changes) ──────────
+            // â”€â”€ Apply cached gradient (only swap when boost changes) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             lineRenderer.colorGradient = state.IsBoosting ? _boostGradient : _normalGradient;
 
-            // ── Head transform ────────────────────────────────────────────────
+            // â”€â”€ Head transform â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (headTransform)
             {
                 headTransform.gameObject.SetActive(true);
@@ -117,7 +117,7 @@ namespace SlitherRoyale.Client.Gameplay
                 headTransform.localScale = new Vector3(scale, scale, 1f);
             }
 
-            // ── Name label follows head in world-space ────────────────────────
+            // â”€â”€ Name label follows head in world-space â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (_nameLabel != null && Camera.main != null)
             {
                 Vector3 worldPos = new Vector3(state.X, state.Y + state.HeadRadius() * 2f, 0f);

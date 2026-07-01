@@ -10,7 +10,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Customize/Cosmetics screen.
-    /// Doc 05 §3.7: Grid of owned skins/trails/emotes.
+    /// Doc 05 Â§3.7: Grid of owned skins/trails/emotes.
     /// Locked items shown greyed out with unlock methods visible.
     /// </summary>
     public class CustomizeScreen : UIScreen
@@ -55,7 +55,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button
-            MakeBtn("← BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeBtn("â† BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(110f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 16, header.transform,
                 () => {
@@ -63,7 +63,7 @@ namespace SlitherRoyale.Client.UI
                     ScreenManager.Instance.NavigateTo<HomeScreen>();
                 });
 
-            // ── Live Preview Area ──
+            // â”€â”€ Live Preview Area â”€â”€
             var previewFrame = AddImage("PreviewFrame",
                 new Vector2(0.05f, 0.5f), new Vector2(0.95f, 0.9f),
                 new Vector2(0f, -500f), new Vector2(0f, -130f),
@@ -72,10 +72,10 @@ namespace SlitherRoyale.Client.UI
             previewFrame.type = Image.Type.Sliced;
 
             // Next / Prev buttons flanking the preview frame
-            MakeArrowBtn("◀", new Vector2(0f, 0.5f), new Vector2(0f, 0.5f),
+            MakeArrowBtn("â—€", new Vector2(0f, 0.5f), new Vector2(0f, 0.5f),
                 new Vector2(16f, -30f), new Vector2(66f, 30f),
                 previewFrame.transform, Prev);
-            MakeArrowBtn("▶", new Vector2(1f, 0.5f), new Vector2(1f, 0.5f),
+            MakeArrowBtn("â–¶", new Vector2(1f, 0.5f), new Vector2(1f, 0.5f),
                 new Vector2(-66f, -30f), new Vector2(-16f, 30f),
                 previewFrame.transform, Next);
 
@@ -129,10 +129,10 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0.05f, 0f), new Vector2(0.95f, 0f),
                 new Vector2(0f, 20f), new Vector2(0f, 85f),
                 new Color(0f, 0f, 0f, 0f));
-            AddAnchoredText("🌈 TRAILS UNLOCKED: ALL", FogGrey, 13, FontStyle.Normal,
+            AddAnchoredText("ðŸŒˆ TRAILS UNLOCKED: ALL", FogGrey, 13, FontStyle.Normal,
                 new Vector2(0f, 0f), new Vector2(0.5f, 1f),
                 Vector2.zero, Vector2.zero, secondaryGrid.transform);
-            AddAnchoredText("💬 EMOTES ACTIVE: 6/6", FogGrey, 13, FontStyle.Normal,
+            AddAnchoredText("ðŸ’¬ EMOTES ACTIVE: 6/6", FogGrey, 13, FontStyle.Normal,
                 new Vector2(0.5f, 0f), new Vector2(1f, 1f),
                 Vector2.zero, Vector2.zero, secondaryGrid.transform);
         }
@@ -250,7 +250,7 @@ namespace SlitherRoyale.Client.UI
             }
             else
             {
-                string costStr = s.GemCost > 0 ? $"UNLOCK FOR {s.GemCost} 💎" : $"UNLOCK FOR {s.CoinCost} 🪙";
+                string costStr = s.GemCost > 0 ? $"UNLOCK FOR {s.GemCost} ðŸ’Ž" : $"UNLOCK FOR {s.CoinCost} ðŸª™";
                 _equipBtnText.text = costStr;
                 _equipBtnImg.color = GoldYolk;
                 _equipBtn.interactable = true;
@@ -270,7 +270,7 @@ namespace SlitherRoyale.Client.UI
             }
         }
 
-        // ── Anchored helpers ──
+        // â”€â”€ Anchored helpers â”€â”€
 
         private Text AddAnchoredText(string content, Color color, int size, FontStyle style,
             Vector2 ancMin, Vector2 ancMax, Vector2 offMin, Vector2 offMax, Transform parent)
@@ -281,7 +281,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

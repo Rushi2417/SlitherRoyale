@@ -8,7 +8,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Mode + Map select screen.
-    /// Doc 05 §3.3: swipeable mode carousel, map preview, server-controlled rotation.
+    /// Doc 05 Â§3.3: swipeable mode carousel, map preview, server-controlled rotation.
     /// </summary>
     public class ModeSelectScreen : UIScreen
     {
@@ -21,9 +21,9 @@ namespace SlitherRoyale.Client.UI
             "Every worm for itself.\nLast one growing wins.",
             "Team up with a partner.\nShare score together.",
             "Best-of-3 duels.\nSmall arena, high skill.",
-            "Shrinking zone • 20 players.\nLast worm alive wins."
+            "Shrinking zone â€¢ 20 players.\nLast worm alive wins."
         };
-        private static readonly string[]    ModeIcons  = { "⚔", "👥", "🏆", "🎯" };
+        private static readonly string[]    ModeIcons  = { "âš”", "ðŸ‘¥", "ðŸ†", "ðŸŽ¯" };
         // BUG-17 FIX: explicit enum lookup so no out-of-range cast
         private static readonly MatchMode[] ModeEnums  = { MatchMode.FreeForAll, MatchMode.Duos, MatchMode.Ranked1v1, MatchMode.BattleRoyale };
         private static readonly Color[]     ModeColors =
@@ -35,15 +35,15 @@ namespace SlitherRoyale.Client.UI
         };
 
         private static readonly string[] MapNames  = { "Neon Grid", "Coral Reef", "Magma Core", "Candy Kingdom", "Space Station", "Haunted Forest" };
-        private static readonly string[] MapIcons  = { "⚡", "🌊", "🌋", "🍬", "🛸", "👻" };
+        private static readonly string[] MapIcons  = { "âš¡", "ðŸŒŠ", "ðŸŒ‹", "ðŸ¬", "ðŸ›¸", "ðŸ‘»" };
         private static readonly string[] MapDescs  =
         {
-            "Speed pads  •  Laser fences",
-            "Ocean currents  •  Jellyfish",
-            "Shrinking zone  •  Lava pools",
-            "Syrup zones  •  Giant pellets",
-            "Low gravity  •  Airlock zones",
-            "Darkness events  •  Wisps",
+            "Speed pads  â€¢  Laser fences",
+            "Ocean currents  â€¢  Jellyfish",
+            "Shrinking zone  â€¢  Lava pools",
+            "Syrup zones  â€¢  Giant pellets",
+            "Low gravity  â€¢  Airlock zones",
+            "Darkness events  â€¢  Wisps",
         };
         private static readonly Color[] MapColors =
         {
@@ -74,7 +74,7 @@ namespace SlitherRoyale.Client.UI
         {
             AddFullBg(InkVoid);
 
-            // ── Header ──────────────────────────────────────────────────────
+            // â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             var header = AddImage("Header",
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(0f, -110f), new Vector2(0f, 0f),
@@ -83,13 +83,13 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button in header
-            MakeBtn("← BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeBtn("â† BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(100f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 18, header.transform,
                 () => { AudioManager.Instance?.Play(AudioManager.SfxType.UITap);
                         ScreenManager.Instance.NavigateTo<HomeScreen>(); });
 
-            // ── Mode Card ───────────────────────────────────────────────────
+            // â”€â”€ Mode Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             _modeCard = AddImage("ModeCard",
                 new Vector2(0.04f, 1f), new Vector2(0.96f, 1f),
                 new Vector2(0f, -390f), new Vector2(0f, -120f),
@@ -97,7 +97,7 @@ namespace SlitherRoyale.Client.UI
             _modeCard.sprite = MakeRoundRectSprite(900, 260, 24);
             _modeCard.type = Image.Type.Sliced;
 
-            _modeIcon = AddAnchoredText("⚔", Color.white, 52, FontStyle.Normal,
+            _modeIcon = AddAnchoredText("âš”", Color.white, 52, FontStyle.Normal,
                 new Vector2(0f, 0.6f), new Vector2(0.2f, 1f),
                 Vector2.zero, Vector2.zero, _modeCard.transform);
             _modeName = AddAnchoredText("Free-For-All", ModeColors[0], 24, FontStyle.Bold,
@@ -108,10 +108,10 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(8f, 0f), Vector2.zero, _modeCard.transform);
 
             // Arrow buttons
-            MakeArrowBtn("◀", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeArrowBtn("â—€", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(0f, 0f), new Vector2(50f, 0f),
                 _modeCard.transform, () => ShiftMode(-1));
-            MakeArrowBtn("▶", new Vector2(1f, 0f), new Vector2(1f, 1f),
+            MakeArrowBtn("â–¶", new Vector2(1f, 0f), new Vector2(1f, 1f),
                 new Vector2(-50f, 0f), new Vector2(0f, 0f),
                 _modeCard.transform, () => ShiftMode(1));
 
@@ -119,7 +119,7 @@ namespace SlitherRoyale.Client.UI
             _modeDots = BuildDots(_modeCard.transform, ModeNames.Length,
                 new Vector2(0.5f, 0f), new Vector2(0f, 16f));
 
-            // ── Map Card ────────────────────────────────────────────────────
+            // â”€â”€ Map Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             _mapCard = AddImage("MapCard",
                 new Vector2(0.04f, 1f), new Vector2(0.96f, 1f),
                 new Vector2(0f, -640f), new Vector2(0f, -398f),
@@ -127,7 +127,7 @@ namespace SlitherRoyale.Client.UI
             _mapCard.sprite = MakeRoundRectSprite(900, 230, 24);
             _mapCard.type = Image.Type.Sliced;
 
-            _mapIcon = AddAnchoredText("⚡", Color.white, 44, FontStyle.Normal,
+            _mapIcon = AddAnchoredText("âš¡", Color.white, 44, FontStyle.Normal,
                 new Vector2(0f, 0.5f), new Vector2(0.18f, 1f),
                 Vector2.zero, Vector2.zero, _mapCard.transform);
             _mapName = AddAnchoredText("Neon Grid", ArcViolet, 20, FontStyle.Bold,
@@ -137,24 +137,24 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0.18f, 0.05f), new Vector2(1f, 0.55f),
                 new Vector2(8f, 0f), Vector2.zero, _mapCard.transform);
 
-            MakeArrowBtn("◀", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeArrowBtn("â—€", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(0f, 0f), new Vector2(50f, 0f),
                 _mapCard.transform, () => ShiftMap(-1));
-            MakeArrowBtn("▶", new Vector2(1f, 0f), new Vector2(1f, 1f),
+            MakeArrowBtn("â–¶", new Vector2(1f, 0f), new Vector2(1f, 1f),
                 new Vector2(-50f, 0f), new Vector2(0f, 0f),
                 _mapCard.transform, () => ShiftMap(1));
 
             _mapDots = BuildDots(_mapCard.transform, MapNames.Length,
                 new Vector2(0.5f, 0f), new Vector2(0f, 16f));
 
-            // ── PLAY Button ─────────────────────────────────────────────────
+            // â”€â”€ PLAY Button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             _playBtnImg = AddImage("PlayBtn",
                 new Vector2(0.08f, 0f), new Vector2(0.92f, 0f),
                 new Vector2(0f, 130f), new Vector2(0f, 260f),
                 ArcViolet);
             _playBtnImg.sprite = MakeRoundRectSprite(800, 130, 36);
             _playBtnImg.type = Image.Type.Sliced;
-            AddAnchoredText("▶  MATCHMAKING", Color.white, 28, FontStyle.Bold,
+            AddAnchoredText("â–¶  MATCHMAKING", Color.white, 28, FontStyle.Bold,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, _playBtnImg.transform);
             _playBtn = _playBtnImg.gameObject.AddComponent<Button>();
             _playBtn.targetGraphic = _playBtnImg;
@@ -229,7 +229,7 @@ namespace SlitherRoyale.Client.UI
         private void Play()
         {
             AudioManager.Instance?.Play(AudioManager.SfxType.UITap);
-            // BUG-17 FIX: Use ModeEnums lookup array instead of direct int→MatchMode cast
+            // BUG-17 FIX: Use ModeEnums lookup array instead of direct intâ†’MatchMode cast
             ScreenManager.Instance.NavigateTo<MatchmakingScreen>(new ModeSelectData
             {
                 MapIndex = _selMap,
@@ -237,7 +237,7 @@ namespace SlitherRoyale.Client.UI
             });
         }
 
-        // ── Helpers ───────────────────────────────────────────────────────────
+        // â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         private Image[] BuildDots(Transform parent, int count, Vector2 center, Vector2 size)
         {
@@ -268,7 +268,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

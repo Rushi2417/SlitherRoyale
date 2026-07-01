@@ -19,7 +19,7 @@ namespace SlitherRoyale.Client.UI
             _text = GetComponent<Text>();
             if (_text == null)
                 _text = gameObject.AddComponent<Text>();
-            _text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            _text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             _text.fontSize = 36;
             _text.alignment = TextAnchor.MiddleCenter;
             _text.horizontalOverflow = HorizontalWrapMode.Overflow;

@@ -24,7 +24,7 @@ namespace SlitherRoyale.Client.UI
             _text = GetComponent<Text>();
             if (_text == null)
                 _text = gameObject.AddComponent<Text>();
-            _text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            _text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             _text.fontSize = 16;
             _text.color = new Color(0.66f, 0.69f, 0.76f);
             _text.alignment = TextAnchor.UpperLeft;
@@ -37,7 +37,7 @@ namespace SlitherRoyale.Client.UI
         public void UpdateLeaderboard(List<WormState> allWorms, int localPlayerId, List<string> names)
         {
             _sb.Clear();
-            _sb.AppendLine("<color=#FFC94D>── LEADERBOARD ──</color>");
+            _sb.AppendLine("<color=#FFC94D>â”€â”€ LEADERBOARD â”€â”€</color>");
 
             var sorted = new List<(float mass, int id, int idx)>(allWorms.Count);
             for (int i = 0; i < allWorms.Count; i++)
@@ -60,7 +60,7 @@ namespace SlitherRoyale.Client.UI
                 if (id == localPlayerId) playerRank = i;
 
                 string colorTag = id == localPlayerId ? "#6C4FFF" : "#A9B0C3";
-                string rankStr = i == 0 ? "👑" : $"#{i + 1}";
+                string rankStr = i == 0 ? "ðŸ‘‘" : $"#{i + 1}";
                 _sb.AppendLine($"<color={colorTag}>{rankStr} {name} - {sorted[i].mass:F0}</color>");
             }
 

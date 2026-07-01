@@ -10,7 +10,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Battle Pass Screen.
-    /// Doc 05 §3.9: Horizontal/Vertical scrollable tier track, free vs premium rows,
+    /// Doc 05 Â§3.9: Horizontal/Vertical scrollable tier track, free vs premium rows,
     /// current tier marked, purchase premium track.
     /// </summary>
     public class BattlePassScreen : UIScreen
@@ -38,7 +38,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.08f));
             topGrad.raycastTarget = false;
 
-            // ── Header ──
+            // â”€â”€ Header â”€â”€
             var header = AddImage("Header",
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(0f, -110f), Vector2.zero,
@@ -48,7 +48,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button
-            MakeBtn("← BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeBtn("â† BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(110f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 16, header.transform,
                 () => {
@@ -56,7 +56,7 @@ namespace SlitherRoyale.Client.UI
                     ScreenManager.Instance.NavigateTo<HomeScreen>();
                 });
 
-            // ── Progress Block (Tier Info & XP) ──
+            // â”€â”€ Progress Block (Tier Info & XP) â”€â”€
             var progBox = AddImage("ProgBox",
                 new Vector2(0.05f, 1f), new Vector2(0.95f, 1f),
                 new Vector2(0f, -300f), new Vector2(0f, -120f),
@@ -110,7 +110,7 @@ namespace SlitherRoyale.Client.UI
             AddAnchoredText("GET PREMIUM\n$4.99", Color.black, 15, FontStyle.Bold,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero, premBtnGo.transform);
 
-            // ── Scroll View for Tiers ──
+            // â”€â”€ Scroll View for Tiers â”€â”€
             var scrollGo = new GameObject("BPScrollView");
             scrollGo.transform.SetParent(transform, false);
             var srt = scrollGo.AddComponent<RectTransform>();
@@ -222,7 +222,7 @@ namespace SlitherRoyale.Client.UI
 
             // Premium Reward details
             string premReward = GetPremiumReward(tier);
-            AddAnchoredText("★ PREMIUM TRACK", GoldYolk, 10, FontStyle.Bold,
+            AddAnchoredText("â˜… PREMIUM TRACK", GoldYolk, 10, FontStyle.Bold,
                 new Vector2(0.58f, 0.55f), new Vector2(0.95f, 0.9f),
                 Vector2.zero, Vector2.zero, row.transform).alignment = TextAnchor.MiddleLeft;
 
@@ -233,32 +233,32 @@ namespace SlitherRoyale.Client.UI
 
         private string GetFreeReward(int tier) => tier switch
         {
-            1 => "100 🪙",
-            2 => "5 💎",
+            1 => "100 ðŸª™",
+            2 => "5 ðŸ’Ž",
             3 => "Neon Glow Trail",
-            4 => "150 🪙",
+            4 => "150 ðŸª™",
             5 => "Common Skin Reroll",
-            6 => "200 🪙",
-            7 => "10 💎",
+            6 => "200 ðŸª™",
+            7 => "10 ðŸ’Ž",
             8 => "Angry Emote",
-            9 => "300 🪙",
+            9 => "300 ðŸª™",
             10 => "Epic Gold Skin",
-            _ => "100 🪙"
+            _ => "100 ðŸª™"
         };
 
         private string GetPremiumReward(int tier) => tier switch
         {
-            1 => "500 🪙",
+            1 => "500 ðŸª™",
             2 => "Cyber Snake Skin",
-            3 => "30 💎",
+            3 => "30 ðŸ’Ž",
             4 => "Animated Rainbow Trail",
             5 => "Epic Loot Box",
-            6 => "1,000 🪙",
-            7 => "75 💎",
+            6 => "1,000 ðŸª™",
+            7 => "75 ðŸ’Ž",
             8 => "Flex Victory Emote",
-            9 => "2,000 🪙",
+            9 => "2,000 ðŸª™",
             10 => "Legendary Dragon Skin",
-            _ => "500 🪙"
+            _ => "500 ðŸª™"
         };
 
         private Text AddAnchoredText(string content, Color color, int size, FontStyle style,
@@ -270,7 +270,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;

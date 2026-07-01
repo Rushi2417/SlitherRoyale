@@ -10,14 +10,14 @@ using WormCore;
 namespace SlitherRoyale.Client.UI
 {
     /// <summary>
-    /// Home Screen — the main hub.
-    /// Doc 05 §3.2: PLAY button, worm preview, currency bar, BP bar,
+    /// Home Screen â€” the main hub.
+    /// Doc 05 Â§3.2: PLAY button, worm preview, currency bar, BP bar,
     /// quest badge, settings/friends/bell icons in top bar.
-    /// Built entirely in code — no scene assets required.
+    /// Built entirely in code â€” no scene assets required.
     /// </summary>
     public class HomeScreen : UIScreen
     {
-        // ── State ─────────────────────────────────────────────────────────────
+        // â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private Text  _coinsLabel, _gemsLabel, _bpLabel, _questLabel;
         private Image _bpBarFill, _playBtnImg;
         private Text  _playLabel;
@@ -30,7 +30,7 @@ namespace SlitherRoyale.Client.UI
         // BUG-04 FIX: Names/icons/order now match WormCore.MatchMode enum exactly
         // FreeForAll=0, Duos=1, Ranked1v1=2, BattleRoyale=3
         private static readonly string[]     ModeNames  = { "Free-For-All", "Duos", "1v1 Ranked", "Battle Royale" };
-        private static readonly string[]     ModeIcons  = { "⚔", "👥", "🏆", "🎯" };
+        private static readonly string[]     ModeIcons  = { "âš”", "ðŸ‘¥", "ðŸ†", "ðŸŽ¯" };
         private static readonly MatchMode[]  ModeEnums  = { MatchMode.FreeForAll, MatchMode.Duos, MatchMode.Ranked1v1, MatchMode.BattleRoyale };
         private static readonly Color[]      ModeColors =
         {
@@ -54,7 +54,7 @@ namespace SlitherRoyale.Client.UI
 
         private void BuildUI()
         {
-            // ── Background ─────────────────────────────────────────────────
+            // â”€â”€ Background â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             var bg = AddFullBg(InkVoid);
 
             // Subtle top gradient overlay (arc-violet tint)
@@ -64,32 +64,32 @@ namespace SlitherRoyale.Client.UI
                 new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.07f));
             topGrad.raycastTarget = false;
 
-            // ── Top Bar ────────────────────────────────────────────────────
+            // â”€â”€ Top Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildTopBar();
 
-            // ── Worm Preview Panel ─────────────────────────────────────────
+            // â”€â”€ Worm Preview Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildWormPreview();
 
-            // ── Currency Bar ───────────────────────────────────────────────
+            // â”€â”€ Currency Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildCurrencyBar();
 
-            // ── Battle Pass Strip ──────────────────────────────────────────
+            // â”€â”€ Battle Pass Strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildBattlePassBar();
 
-            // ── Mode Selector ──────────────────────────────────────────────
+            // â”€â”€ Mode Selector â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildModeSelector();
 
-            // ── PLAY Button ────────────────────────────────────────────────
+            // â”€â”€ PLAY Button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildPlayButton();
 
-            // ── Quest / Daily Reward badges ────────────────────────────────
+            // â”€â”€ Quest / Daily Reward badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildBadges();
 
-            // ── Bottom Nav Row ─────────────────────────────────────────────
+            // â”€â”€ Bottom Nav Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             BuildBottomNav();
         }
 
-        // ── Top Bar ───────────────────────────────────────────────────────────
+        // â”€â”€ Top Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildTopBar()
         {
             // Top bar background
@@ -98,7 +98,7 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0f, -100f), new Vector2(0f, 0f),
                 new Color(0.04f, 0.05f, 0.08f, 0.95f));
 
-            // Avatar circle — left
+            // Avatar circle â€” left
             MakeAnchoredImage("Avatar", new Vector2(0f, 1f), new Vector2(0f, 1f),
                 new Vector2(18f, -90f), new Vector2(82f, -18f),
                 MakeCircleSprite(ArcViolet, 64), barBg.transform);
@@ -108,24 +108,24 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0f, 1f), new Vector2(0f, 1f),
                 new Vector2(18f, -90f), new Vector2(82f, -18f), barBg.transform);
 
-            // Title — center
+            // Title â€” center
             MakeAnchoredText("SLITHER ROYALE", ArcViolet, 24, FontStyle.Bold,
                 new Vector2(0.25f, 1f), new Vector2(0.75f, 1f),
                 new Vector2(0f, -84f), new Vector2(0f, -12f), barBg.transform);
 
-            // Icons — right side
-            MakeIconButton("⚙", new Vector2(1f, 1f), new Vector2(1f, 1f),
+            // Icons â€” right side
+            MakeIconButton("âš™", new Vector2(1f, 1f), new Vector2(1f, 1f),
                 new Vector2(-190f, -88f), new Vector2(-130f, -18f),
                 barBg.transform, () => ScreenManager.Instance.NavigateTo<SettingsScreen>());
-            MakeIconButton("👥", new Vector2(1f, 1f), new Vector2(1f, 1f),
+            MakeIconButton("ðŸ‘¥", new Vector2(1f, 1f), new Vector2(1f, 1f),
                 new Vector2(-126f, -88f), new Vector2(-66f, -18f),
                 barBg.transform, () => ScreenManager.Instance.NavigateTo<FriendsListScreen>());
-            MakeIconButton("🏆", new Vector2(1f, 1f), new Vector2(1f, 1f),
+            MakeIconButton("ðŸ†", new Vector2(1f, 1f), new Vector2(1f, 1f),
                 new Vector2(-62f, -88f), new Vector2(-2f, -18f),
                 barBg.transform, () => ScreenManager.Instance.NavigateTo<LeaderboardScreen>());
         }
 
-        // ── Worm Preview ──────────────────────────────────────────────────────
+        // â”€â”€ Worm Preview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildWormPreview()
         {
             // Card background
@@ -158,12 +158,12 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0f, 10f), new Vector2(0f, 40f), card.transform);
 
             // Tap to customize hint
-            MakeAnchoredText("TAP TO CUSTOMIZE ›", new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.7f),
+            MakeAnchoredText("TAP TO CUSTOMIZE â€º", new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.7f),
                 13, FontStyle.Normal,
                 new Vector2(1f, 0f), new Vector2(1f, 0f),
                 new Vector2(-200f, 8f), new Vector2(-8f, 40f), card.transform);
 
-            // Make card tappable → Customize
+            // Make card tappable â†’ Customize
             var btn = card.gameObject.AddComponent<Button>();
             btn.targetGraphic = card;
             btn.onClick.AddListener(() =>
@@ -173,7 +173,7 @@ namespace SlitherRoyale.Client.UI
             });
         }
 
-        // ── Currency Bar ──────────────────────────────────────────────────────
+        // â”€â”€ Currency Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildCurrencyBar()
         {
             var bar = AddImage("CurrencyBar",
@@ -184,7 +184,7 @@ namespace SlitherRoyale.Client.UI
             bar.type   = Image.Type.Sliced;
 
             // Coins
-            MakeAnchoredText("🪙", GoldYolk, 22, FontStyle.Bold,
+            MakeAnchoredText("ðŸª™", GoldYolk, 22, FontStyle.Bold,
                 new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(16f, 0f), new Vector2(50f, 0f), bar.transform);
             _coinsLabel = MakeAnchoredText("---", GoldYolk, 18, FontStyle.Bold,
@@ -196,14 +196,14 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.zero, DividerCol, bar.transform);
 
             // Gems
-            MakeAnchoredText("💎", BioMint, 22, FontStyle.Bold,
+            MakeAnchoredText("ðŸ’Ž", BioMint, 22, FontStyle.Bold,
                 new Vector2(0.35f, 0f), new Vector2(0.35f, 1f),
                 new Vector2(0f, 0f), new Vector2(36f, 0f), bar.transform);
             _gemsLabel = MakeAnchoredText("---", BioMint, 18, FontStyle.Bold,
                 new Vector2(0.35f, 0f), new Vector2(0.35f, 1f),
                 new Vector2(40f, 0f), new Vector2(160f, 0f), bar.transform);
 
-            // Tap whole bar → Shop
+            // Tap whole bar â†’ Shop
             var btn = bar.gameObject.AddComponent<Button>();
             btn.targetGraphic = bar;
             btn.onClick.AddListener(() => {
@@ -212,7 +212,7 @@ namespace SlitherRoyale.Client.UI
             });
         }
 
-        // ── Battle Pass Bar ───────────────────────────────────────────────────
+        // â”€â”€ Battle Pass Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildBattlePassBar()
         {
             var strip = AddImage("BPStrip",
@@ -242,7 +242,7 @@ namespace SlitherRoyale.Client.UI
                 ArcViolet, track.transform);
             _bpBarFill.rectTransform.anchorMax = new Vector2(0f, 1f); // width set in Update
 
-            MakeAnchoredText("›", FogGrey, 20, FontStyle.Normal,
+            MakeAnchoredText("â€º", FogGrey, 20, FontStyle.Normal,
                 new Vector2(0.93f, 0f), new Vector2(1f, 1f),
                 Vector2.zero, Vector2.zero, strip.transform);
 
@@ -254,7 +254,7 @@ namespace SlitherRoyale.Client.UI
             });
         }
 
-        // ── Mode Selector ─────────────────────────────────────────────────────
+        // â”€â”€ Mode Selector â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildModeSelector()
         {
             var modePanel = AddImage("ModePanel",
@@ -298,10 +298,10 @@ namespace SlitherRoyale.Client.UI
             }
         }
 
-        // ── PLAY Button ───────────────────────────────────────────────────────
+        // â”€â”€ PLAY Button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildPlayButton()
         {
-            // Large play button — arc-violet, center screen
+            // Large play button â€” arc-violet, center screen
             _playBtnImg = AddImage("PlayBtn",
                 new Vector2(0.1f, 1f), new Vector2(0.9f, 1f),
                 new Vector2(0f, -780f), new Vector2(0f, -630f),
@@ -323,20 +323,20 @@ namespace SlitherRoyale.Client.UI
             _playBtn.onClick.AddListener(OnPlayClicked);
         }
 
-        // ── Badges ────────────────────────────────────────────────────────────
+        // â”€â”€ Badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildBadges()
         {
             // Quest progress badge
-            _questLabel = AddText("⬤ 0/3 Daily Quests", BioMint, 15,
+            _questLabel = AddText("â¬¤ 0/3 Daily Quests", BioMint, 15,
                 new Vector2(0f, -830f), FontStyle.Bold);
 
             // Login reward dot
-            _loginDot = AddText("🎁 Daily Reward!", GoldYolk, 14,
+            _loginDot = AddText("ðŸŽ Daily Reward!", GoldYolk, 14,
                 new Vector2(0f, -860f), FontStyle.Normal);
             _loginDot.gameObject.SetActive(false);
         }
 
-        // ── Bottom Nav Row ────────────────────────────────────────────────────
+        // â”€â”€ Bottom Nav Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
         private void BuildBottomNav()
         {
             var nav = AddImage("BottomNav",
@@ -345,7 +345,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(0.04f, 0.05f, 0.08f, 0.97f));
 
             // 4 nav buttons evenly spaced
-            string[] icons  = { "🐍", "🎨", "🛒", "👑" };
+            string[] icons  = { "ðŸ", "ðŸŽ¨", "ðŸ›’", "ðŸ‘‘" };
             string[] labels = { "Play", "Customize", "Shop", "Battle Pass" };
             System.Action[] actions =
             {
@@ -378,7 +378,7 @@ namespace SlitherRoyale.Client.UI
             }
         }
 
-        // ── Lifecycle ─────────────────────────────────────────────────────────
+        // â”€â”€ Lifecycle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         public override void OnEnter(ScreenManager sm, object data)
         {
@@ -445,7 +445,7 @@ namespace SlitherRoyale.Client.UI
 
             int done = 0;
             try { foreach (var q in QuestManager.DailyQuests) if (q.Completed) done++; } catch { }
-            if (_questLabel) _questLabel.text = $"⬤ {done}/3 Daily Quests";
+            if (_questLabel) _questLabel.text = $"â¬¤ {done}/3 Daily Quests";
             if (_questLabel) _questLabel.color = done >= 3 ? GoldYolk : BioMint;
         }
 
@@ -460,7 +460,7 @@ namespace SlitherRoyale.Client.UI
             });
         }
 
-        // ── Anchored helper builders ──────────────────────────────────────────
+        // â”€â”€ Anchored helper builders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
         private Image MakeAnchoredImage(string name,
             Vector2 ancMin, Vector2 ancMax, Vector2 offMin, Vector2 offMax,
@@ -495,7 +495,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content;
             txt.color = color;
             txt.fontSize = size;

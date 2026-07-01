@@ -117,7 +117,7 @@ namespace SlitherRoyale.Client.UI
             label.color = new Color(0.66f, 0.69f, 0.76f, 0.5f);
             label.fontSize = 9;
             label.alignment = TextAnchor.UpperCenter;
-            label.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            label.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         }
 
         public void UpdateMinimap(List<WormState> worms, int localPlayerId, float shrinkRadius = -1f)
@@ -163,10 +163,10 @@ namespace SlitherRoyale.Client.UI
                 // Color by mass relative to player
                 float massRatio = worms.Count > 0 ? worm.Mass / (worms[0].Mass + 0.001f) : 1f;
                 dot.color = massRatio > 1.3f
-                    ? new Color(1f, 0.42f, 0.36f, 0.9f)   // bigger — red = danger
+                    ? new Color(1f, 0.42f, 0.36f, 0.9f)   // bigger â€” red = danger
                     : massRatio < 0.7f
-                        ? new Color(0.25f, 0.88f, 0.77f, 0.7f)  // smaller — mint = easy prey
-                        : new Color(1f, 0.79f, 0.3f, 0.8f);     // similar — gold = caution
+                        ? new Color(0.25f, 0.88f, 0.77f, 0.7f)  // smaller â€” mint = easy prey
+                        : new Color(1f, 0.79f, 0.3f, 0.8f);     // similar â€” gold = caution
             }
             // Hide unused dots
             for (int i = dotIndex; i < _dotPool.Count; i++)

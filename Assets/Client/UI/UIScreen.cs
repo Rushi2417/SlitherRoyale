@@ -127,7 +127,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchoredPosition = pos;
             rt.sizeDelta = new Vector2(900f, 80f);
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content;
             txt.color = color;
             txt.fontSize = size;
@@ -148,7 +148,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMax = Vector2.one;
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content;
             txt.color = color;
             txt.fontSize = size;

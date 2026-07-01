@@ -11,7 +11,7 @@ namespace SlitherRoyale.Client.UI
 {
     /// <summary>
     /// Friends List Screen.
-    /// Doc 05 §3.10: View friends, add friend via PlayFab ID, delete/remove friends.
+    /// Doc 05 Â§3.10: View friends, add friend via PlayFab ID, delete/remove friends.
     /// </summary>
     public class FriendsListScreen : UIScreen
     {
@@ -38,7 +38,7 @@ namespace SlitherRoyale.Client.UI
                 new Color(ArcViolet.r, ArcViolet.g, ArcViolet.b, 0.08f));
             topGrad.raycastTarget = false;
 
-            // ── Header ──
+            // â”€â”€ Header â”€â”€
             var header = AddImage("Header",
                 new Vector2(0f, 1f), new Vector2(1f, 1f),
                 new Vector2(0f, -110f), Vector2.zero,
@@ -48,7 +48,7 @@ namespace SlitherRoyale.Client.UI
                 Vector2.zero, Vector2.one, new Vector2(0f, -10f), Vector2.zero, header.transform);
 
             // Back button
-            MakeBtn("← BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
+            MakeBtn("â† BACK", new Vector2(0f, 0f), new Vector2(0f, 1f),
                 new Vector2(8f, 8f), new Vector2(110f, -8f),
                 new Color(0f, 0f, 0f, 0f), FogGrey, 16, header.transform,
                 () => {
@@ -56,7 +56,7 @@ namespace SlitherRoyale.Client.UI
                     ScreenManager.Instance.NavigateTo<HomeScreen>();
                 });
 
-            // ── Add Friend Bar ──
+            // â”€â”€ Add Friend Bar â”€â”€
             var addBar = AddImage("AddBar",
                 new Vector2(0.05f, 1f), new Vector2(0.95f, 1f),
                 new Vector2(0f, -180f), new Vector2(0f, -120f),
@@ -91,7 +91,7 @@ namespace SlitherRoyale.Client.UI
             _feedbackText = AddText("", EmberCoral, 13, new Vector2(0f, -230f));
             _feedbackText.GetComponent<RectTransform>().sizeDelta = new Vector2(800f, 30f);
 
-            // ── Scroll List for Friends ──
+            // â”€â”€ Scroll List for Friends â”€â”€
             var scrollGo = new GameObject("FriendsScrollView");
             scrollGo.transform.SetParent(transform, false);
             var srt = scrollGo.AddComponent<RectTransform>();
@@ -291,7 +291,7 @@ namespace SlitherRoyale.Client.UI
             }
         }
 
-        // ── Input Field Builder Helper ──
+        // â”€â”€ Input Field Builder Helper â”€â”€
 
         private InputField AddInputField(Vector2 ancMin, Vector2 ancMax, Transform parent)
         {
@@ -314,7 +314,7 @@ namespace SlitherRoyale.Client.UI
             trt.offsetMin = new Vector2(12f, 4f); trt.offsetMax = new Vector2(-12f, -4f);
 
             var txt = txtGo.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.fontSize = 15;
             txt.color = Color.white;
             txt.alignment = TextAnchor.MiddleLeft;
@@ -330,7 +330,7 @@ namespace SlitherRoyale.Client.UI
             phrt.offsetMin = new Vector2(12f, 4f); phrt.offsetMax = new Vector2(-12f, -4f);
 
             var placeholderText = phGo.AddComponent<Text>();
-            placeholderText.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            placeholderText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             placeholderText.fontSize = 14;
             placeholderText.text = "Enter PlayFab ID...";
             placeholderText.color = FogGrey;
@@ -340,7 +340,7 @@ namespace SlitherRoyale.Client.UI
             return input;
         }
 
-        // ── General helpers ──
+        // â”€â”€ General helpers â”€â”€
 
         private Text AddAnchoredText(string content, Color color, int size, FontStyle style,
             Vector2 ancMin, Vector2 ancMax, Vector2 offMin, Vector2 offMax, Transform parent)
@@ -351,7 +351,7 @@ namespace SlitherRoyale.Client.UI
             rt.anchorMin = ancMin; rt.anchorMax = ancMax;
             rt.offsetMin = offMin; rt.offsetMax = offMax;
             var txt = go.AddComponent<Text>();
-            txt.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            txt.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             txt.text = content; txt.color = color; txt.fontSize = size;
             txt.fontStyle = style; txt.alignment = TextAnchor.MiddleCenter;
             txt.supportRichText = true;
