@@ -90,23 +90,43 @@ namespace SlitherRoyale.Client.UI
 
         public void NavigateTo(string screenId, object data = null)
         {
-            if (_currentScreen != null)
+            try
             {
-                _currentScreen.OnExit();
-                if (!NoBannerScreens.Contains(_currentScreen.ScreenId))
-                    AdService.HideBanner();
-            }
+                if (_currentScreen != null)
+                {
+                    _currentScreen.OnExit();
+                    // Guard: only call AdService if it's ready
+                    if (AdService.IsInitialized && !NoBannerScreens.Contains(_currentScreen.ScreenId))
+                        AdService.HideBanner();
+                }
 
-            if (_screens.TryGetValue(screenId, out var screen))
-            {
-                _currentScreen = screen;
-                _currentScreen.OnEnter(this, data);
-                if (!NoBannerScreens.Contains(screenId))
-                    AdService.ShowBanner();
+                if (_screens.TryGetValue(screenId, out var screen))
+                {
+                    _currentScreen = screen;
+
+                    // BLANK SCREEN FIX: must SetActive(true) BEFORE OnEnter so
+                    // the screen's GameObject is visible and coroutines can run.
+                    // Without this, every screen stays hidden permanently.
+                    if (!screen.gameObject.activeSelf)
+                        screen.gameObject.SetActive(true);
+
+                    _currentScreen.OnEnter(this, data);
+
+                    // Guard: only show banner if AdService is ready
+                    if (AdService.IsInitialized && !NoBannerScreens.Contains(screenId))
+                        AdService.ShowBanner();
+
+                    Debug.Log($"[ScreenManager] → {screenId}");
+                }
+                else
+                {
+                    Debug.LogError($"[ScreenManager] Screen not registered: '{screenId}'. " +
+                                   $"Registered: {string.Join(", ", _screens.Keys)}");
+                }
             }
-            else
+            catch (System.Exception ex)
             {
-                Debug.LogError($"[ScreenManager] Screen not registered: {screenId}");
+                Debug.LogError($"[ScreenManager] NavigateTo '{screenId}' threw: {ex}");
             }
         }
 

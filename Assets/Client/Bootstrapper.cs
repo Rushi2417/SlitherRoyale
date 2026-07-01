@@ -59,15 +59,16 @@ namespace SlitherRoyale.Client
 
             Application.targetFrameRate = 60;
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
-            AccessibilityService.Initialize();
-            AccessibilityService.LoadSavedMode();
+
+            try { AccessibilityService.Initialize(); AccessibilityService.LoadSavedMode(); }
+            catch (System.Exception ex) { Debug.LogError($"[Bootstrapper] AccessibilityService failed: {ex.Message}"); }
 
             // Paint the scene camera InkVoid so there is no white flash
             var sceneCam = Camera.main;
             if (sceneCam != null)
             {
-                sceneCam.clearFlags       = CameraClearFlags.SolidColor;
-                sceneCam.backgroundColor  = new Color(0.043f, 0.055f, 0.078f, 1f);
+                sceneCam.clearFlags      = CameraClearFlags.SolidColor;
+                sceneCam.backgroundColor = new Color(0.043f, 0.055f, 0.078f, 1f);
             }
 
             string overrideHost = ParseArg("-connect");
@@ -77,6 +78,10 @@ namespace SlitherRoyale.Client
                 MatchmakerClient.SetOverrideHost(overrideHost);
             }
 
+            // Initialize AdService early so banner guards in ScreenManager work
+            try { AdService.Initialize(); }
+            catch (System.Exception ex) { Debug.LogWarning($"[Bootstrapper] AdService init failed: {ex.Message}"); }
+
             Debug.Log("[Bootstrapper] Phase 0 init started");
 
             // Build ScreenManager — its Awake() runs immediately inside AddComponent
@@ -84,18 +89,21 @@ namespace SlitherRoyale.Client
             smGo.transform.SetParent(transform);
             _screenManager = smGo.AddComponent<ScreenManager>();
 
-            // Register all screens (each Awake() runs inside AddComponent)
-            _screenManager.Register<SplashScreen>();
-            _screenManager.Register<HomeScreen>();
-            _screenManager.Register<ModeSelectScreen>();
-            _screenManager.Register<MatchmakingScreen>();
-            _screenManager.Register<ResultsScreen>();
-            _screenManager.Register<CustomizeScreen>();
-            _screenManager.Register<ShopScreen>();
-            _screenManager.Register<BattlePassScreen>();
-            _screenManager.Register<SettingsScreen>();
-            _screenManager.Register<LeaderboardScreen>();
-            _screenManager.Register<FriendsListScreen>();
+            // Register all screens individually so one bad screen cannot
+            // kill the entire init coroutine and leave a blank black screen.
+            SafeRegister<SplashScreen>(_screenManager);
+            SafeRegister<HomeScreen>(_screenManager);
+            SafeRegister<ModeSelectScreen>(_screenManager);
+            SafeRegister<MatchmakingScreen>(_screenManager);
+            SafeRegister<ResultsScreen>(_screenManager);
+            SafeRegister<CustomizeScreen>(_screenManager);
+            SafeRegister<ShopScreen>(_screenManager);
+            SafeRegister<BattlePassScreen>(_screenManager);
+            SafeRegister<SettingsScreen>(_screenManager);
+            SafeRegister<LeaderboardScreen>(_screenManager);
+            SafeRegister<FriendsListScreen>(_screenManager);
+
+            Debug.Log("[Bootstrapper] All screens registered. Navigating to SplashScreen...");
 
             // Wait one more frame so RectTransform layout has been calculated
             // before OnEnter tries to position children.
@@ -107,8 +115,26 @@ namespace SlitherRoyale.Client
             // Persistent singletons
             SpawnAudioManager();
             SpawnLoginRewardService();
+            SpawnDebugConsole();  // always-on log overlay; triple-tap to toggle on device
 
             InitBackendAsync();
+        }
+
+        /// <summary>
+        /// Wraps screen registration in try-catch so any single screen's
+        /// Awake() throwing does NOT crash the entire init coroutine.
+        /// </summary>
+        private static void SafeRegister<T>(ScreenManager sm) where T : UIScreen
+        {
+            try
+            {
+                sm.Register<T>();
+                Debug.Log($"[Bootstrapper] Registered: {typeof(T).Name}");
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[Bootstrapper] FAILED to register {typeof(T).Name}: {ex}");
+            }
         }
 
         private void SpawnAudioManager()
@@ -124,6 +150,15 @@ namespace SlitherRoyale.Client
             var go = new GameObject("LoginRewardService");
             go.transform.SetParent(transform);
             go.AddComponent<LoginRewardService>();
+        }
+
+        private void SpawnDebugConsole()
+        {
+            // InGameDebugConsole is stripped in release builds via #if DEVELOPMENT_BUILD
+            // but is always active in the editor. Triple-tap anywhere to show/hide on device.
+            var go = new GameObject("DebugConsole");
+            go.transform.SetParent(transform);
+            go.AddComponent<InGameDebugConsole>();
         }
 
         private async void InitBackendAsync()
