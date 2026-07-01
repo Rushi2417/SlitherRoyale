@@ -6,6 +6,7 @@ using SlitherRoyale.Client.Gameplay;
 using SlitherRoyale.Client.Networking;
 using SlitherRoyale.Client.UI;
 using SlitherRoyale.Client.VFX;
+using SlitherRoyale.Client.Monetization;
 using SlitherRoyale.Server;
 using UnityEngine;
 using UnityEngine.UI;

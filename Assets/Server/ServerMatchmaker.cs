@@ -107,6 +107,7 @@ namespace SlitherRoyale.Server
         public void RemoveBotFromSet(int botId)
         {
             _botIds.Remove(botId);
+            OnBotRemoved?.Invoke(botId);
         }
     }
 }

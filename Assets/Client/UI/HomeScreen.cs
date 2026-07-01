@@ -114,7 +114,6 @@ namespace SlitherRoyale.Client.UI
                 new Vector2(0f, -84f), new Vector2(0f, -12f), barBg.transform);
 
             // Icons — right side
-            float iconY = -52f;
             MakeIconButton("⚙", new Vector2(1f, 1f), new Vector2(1f, 1f),
                 new Vector2(-190f, -88f), new Vector2(-130f, -18f),
                 barBg.transform, () => ScreenManager.Instance.NavigateTo<SettingsScreen>());

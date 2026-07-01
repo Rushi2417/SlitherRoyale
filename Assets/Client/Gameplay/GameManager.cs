@@ -62,11 +62,6 @@ namespace SlitherRoyale.Client.Gameplay
         private float _boostPelletTimer;
         private const float BoostPelletInterval = 0.15f;
 
-        // Speed pad temporary boost
-        private float _speedPadBoostTimer;
-        private const float SpeedPadBoostDuration = 1.5f;
-        private const float SpeedPadBoostMultiplier = 1.4f;
-
         // BUG-07 FIX: timer-based giant pellet respawn (replaces frame-rate-dependent Random check)
         private float _giantPelletRespawnTimer = 8f;
 
@@ -761,9 +756,9 @@ namespace SlitherRoyale.Client.Gameplay
         private void CreateHUD()
         {
             // BUG-02 FIX: Use the explicitly-assigned hudCanvas field.
-            // FindObjectOfType<Canvas>() returns the ScreenManager's canvas (sort 50),
+            // FindFirstObjectByType<Canvas>() returns the ScreenManager's canvas (sort 50),
             // not the HUD canvas (sort 100), making all HUD elements invisible.
-            var canvas = hudCanvas != null ? hudCanvas : FindObjectOfType<Canvas>();
+            var canvas = hudCanvas != null ? hudCanvas : FindFirstObjectByType<Canvas>();
             if (canvas == null) return;
 
             // Danger vignette — initialize first so it draws behind all other HUD elements
@@ -1018,7 +1013,7 @@ namespace SlitherRoyale.Client.Gameplay
         private void CreateDarknessOverlay()
         {
             if (!mapConfig.hasDarknessEvents) return;
-            var canvas = FindObjectOfType<Canvas>();
+            var canvas = FindFirstObjectByType<Canvas>();
             if (canvas == null) return;
 
             _darknessOverlay = new GameObject("DarknessOverlay");

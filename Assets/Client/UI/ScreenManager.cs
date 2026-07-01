@@ -47,7 +47,7 @@ namespace SlitherRoyale.Client.UI
 
         private void SetupEventSystem()
         {
-            if (FindObjectOfType<EventSystem>() == null)
+            if (FindFirstObjectByType<EventSystem>() == null)
             {
                 var esGo = new GameObject("EventSystem");
                 esGo.AddComponent<EventSystem>();

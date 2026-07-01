@@ -45,7 +45,7 @@ namespace SlitherRoyale.Client.Gameplay
             if (_interpolation == null)
                 _interpolation = gameObject.AddComponent<EntityInterpolation>();
 
-            _mapMechanics = FindObjectOfType<MapMechanics>();
+            _mapMechanics = FindFirstObjectByType<MapMechanics>();
 
             _wormNames = new Dictionary<int, string>(32);
 
