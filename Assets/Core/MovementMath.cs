@@ -7,13 +7,18 @@ namespace WormCore
     {
         public const float BaseSpeed = 320f;
         public const float BoostMultiplier = 1.7f;
-        public const float SegmentSpacing = 6f;
+        public const float SegmentSpacing = 8f;
         public const float TurnSpeed = 4.5f;
+        public const float MoveDeadZoneSq = 0.01f; // min movement to record a trail point
+        public static float TurnRadiusMultiplier = 1f;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float CalculateSpeed(float mass, bool isBoosting)
         {
-            float speedPenalty = 1f - (mass / 5000f > 0.4f ? 0.4f : mass / 5000f);
+            // Speed penalty caps at 40% reduction
+            float massFraction = mass / 5000f;
+            if (massFraction > 0.4f) massFraction = 0.4f;
+            float speedPenalty = 1f - massFraction;
             float speed = BaseSpeed * speedPenalty;
             return isBoosting ? speed * BoostMultiplier : speed;
         }
@@ -21,7 +26,7 @@ namespace WormCore
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float CalculateTurnRadius(float mass)
         {
-            return 1f + mass * 0.0008f;
+            return (1f + mass * 0.0008f) * TurnRadiusMultiplier;
         }
 
         public static void IntegrateMovement(
@@ -34,6 +39,7 @@ namespace WormCore
 
             float turnRadius = CalculateTurnRadius(state.Mass);
             float angleDiff = desiredHeading - state.Heading;
+            // Normalize angle to [-PI, PI]
             while (angleDiff > 3.14159274f) angleDiff -= 6.28318548f;
             while (angleDiff < -3.14159274f) angleDiff += 6.28318548f;
 
@@ -44,49 +50,67 @@ namespace WormCore
             while (state.Heading < -3.14159274f) state.Heading += 6.28318548f;
 
             float speed = CalculateSpeed(state.Mass, boostHeld);
-            float moveX = Cos(state.Heading) * speed * deltaTime;
-            float moveY = Sin(state.Heading) * speed * deltaTime;
-            state.X += moveX;
-            state.Y += moveY;
+            float dx = Cos(state.Heading) * speed * deltaTime;
+            float dy = Sin(state.Heading) * speed * deltaTime;
+            state.X += dx;
+            state.Y += dy;
 
-            UpdateSegments(ref state, moveX, moveY);
+            UpdateSegments(ref state);
         }
 
-        private static void UpdateSegments(ref WormState state, float moveX, float moveY)
+        /// <summary>
+        /// Follow-the-leader segment chain: O(n). Each segment chases the one
+        /// ahead of it, staying SegmentSpacing apart. No List.Insert(0,...).
+        /// </summary>
+        private static void UpdateSegments(ref WormState state)
         {
             if (state.Mass <= 0f) return;
+
             int targetCount = (int)(GrowthMath.MassToLength(state.Mass) / SegmentSpacing);
             if (targetCount < 3) targetCount = 3;
             state.TargetSegmentCount = targetCount;
 
             if (state.Segments == null)
-                state.Segments = new List<WormState.Segment>(targetCount);
+                state.Segments = new List<WormState.Segment>(targetCount + 8);
 
-            if (moveX != 0f || moveY != 0f)
+            // Grow segment list if needed (add tail segments)
+            while (state.Segments.Count < targetCount)
             {
-                state.Segments.Insert(0, new WormState.Segment
+                if (state.Segments.Count == 0)
+                    state.Segments.Add(new WormState.Segment { X = state.X, Y = state.Y });
+                else
                 {
-                    X = state.X,
-                    Y = state.Y
-                });
+                    var last = state.Segments[state.Segments.Count - 1];
+                    state.Segments.Add(new WormState.Segment { X = last.X, Y = last.Y });
+                }
             }
 
-            float maxDist = targetCount * SegmentSpacing;
-            float accumulated = 0f;
-            for (int i = state.Segments.Count - 1; i >= 0; i--)
-            {
-                if (i == 0) break;
-                float dx = state.Segments[i - 1].X - state.Segments[i].X;
-                float dy = state.Segments[i - 1].Y - state.Segments[i].Y;
-                float dist = Sqrt(dx * dx + dy * dy);
-                accumulated += dist;
-                if (accumulated > maxDist)
-                    state.Segments.RemoveAt(i);
-            }
-
-            int maxSegments = targetCount + 5;
-            while (state.Segments.Count > maxSegments)
+            // Trim excess segments
+            while (state.Segments.Count > targetCount + 4)
                 state.Segments.RemoveAt(state.Segments.Count - 1);
+
+            // Follow-the-leader: segment[0] chases head, segment[i] chases segment[i-1]
+            float leaderX = state.X;
+            float leaderY = state.Y;
+
+            for (int i = 0; i < state.Segments.Count; i++)
+            {
+                float sdx = leaderX - state.Segments[i].X;
+                float sdy = leaderY - state.Segments[i].Y;
+                float distSq = sdx * sdx + sdy * sdy;
+
+                if (distSq > SegmentSpacing * SegmentSpacing)
+                {
+                    float dist = Sqrt(distSq);
+                    float ratio = (dist - SegmentSpacing) / dist;
+                    float newX = state.Segments[i].X + sdx * ratio;
+                    float newY = state.Segments[i].Y + sdy * ratio;
+                    state.Segments[i] = new WormState.Segment { X = newX, Y = newY };
+                }
+
+                leaderX = state.Segments[i].X;
+                leaderY = state.Segments[i].Y;
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

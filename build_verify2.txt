@@ -1,0 +1,397 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Channel LicenseClient-rushi doesn't exist
+Built from '6000.0/staging' branch; Version is '6000.0.78f1 (ec8a99a872be) revision 15501977'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) CoreSingleLanguage' Language: 'en' Physical Memory: 7926 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-06-28T10:40:10Z
+[Licensing::Module] Successfully launched the LicensingClient (PId: 20340)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-rushi" at "2026-06-28T10:40:11.400058Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 20340, path: "C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.78f1\Editor\Unity.exe
+-projectPath
+C:\Users\rushi\Downloads\New folder\SlitherRoyale
+-batchmode
+-quit
+-logFile
+C:\Users\rushi\Downloads\New folder\SlitherRoyale\build_verify2.txt
+Successfully changed project path to: C:\Users\rushi\Downloads\New folder\SlitherRoyale
+C:/Users/rushi/Downloads/New folder/SlitherRoyale
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [23556]  Target information:
+
+Player connection [23556]  * "[IP] 192.168.1.2 [Port] 55504 [Flags] 2 [Guid] 1623193278 [EditorId] 1623193278 [Version] 1048832 [Id] WindowsEditor(7,Rushikesh) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [23556] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [23556] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.4+4293ba1
+  Session Id:              b66db103397f4571b9a6c4e0b3ad0251
+  Correlation Id:          24944dcc7afb240f8c3f36b305143ecd
+  External correlation Id: 7938947310022623888
+  Machine Id:              pGxHoaemQf0mUnW/biMsOEJsSAU=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-rushi" (connect: 0.57s, validation: 0.46s, handshake: 0.07s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-rushi-notifications" at "2026-06-28T10:40:11.9267008Z"
+[Licensing::Module] Connected to LicensingClient (PId: 20340, launch time: 0.06, total connection time: 1.10s)
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 13469936749304-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.03
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Licensing Background thread has ended after 1.26s
+[Package Manager] Connected to IPC stream "Upm-11100" after 0.6 seconds.
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 10.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.78f1 (ec8a99a872be)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/rushi/Downloads/New folder/SlitherRoyale/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce MX350 (ID=0x1c94)
+    Vendor:   NVIDIA
+    VRAM:     1964 MB
+    Driver:   32.0.15.8132
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56100
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.78f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.020893 seconds.
+- Loaded All Assemblies, in  0.688 seconds
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 356 ms
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.899 seconds
+Domain Reload Profiling: 1585ms
+	BeginReloadAssembly (284ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (4ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (88ms)
+	LoadAllAssembliesAndSetupDomain (231ms)
+		LoadAssemblies (273ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (224ms)
+			TypeCache.Refresh (221ms)
+				TypeCache.ScanAssembly (197ms)
+			BuildScriptInfoCaches (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (902ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (842ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (499ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (89ms)
+			ProcessInitializeOnLoadAttributes (164ms)
+			ProcessInitializeOnLoadMethodAttributes (85ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 53 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.ai.navigation@2.0.6 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.ai.navigation@c74b2724ed42)
+    com.unity.collab-proxy@2.7.1 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.collab-proxy@50ac96531b63)
+    com.unity.ide.rider@3.0.34 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.ide.rider@ecbf706690e5)
+    com.unity.ide.visualstudio@2.0.22 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.ide.visualstudio@8140e851d83e)
+    com.unity.searcher@4.9.3 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.searcher@1e17ce91558d)
+    com.unity.burst@1.8.29 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.burst@6bb9aca3ef38)
+    com.unity.mathematics@1.3.2 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.mathematics@8017b507cc74)
+    com.unity.collections@2.6.7 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.collections@31e963071226)
+    com.unity.nuget.mono-cecil@1.11.6 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff)
+    com.unity.test-framework.performance@3.5.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.test-framework.performance@8b56083ec0f0)
+  Built-in packages:
+    com.unity.multiplayer.center@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.multiplayer.center@f3fb577b3546)
+    com.unity.render-pipelines.universal@17.0.4 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.render-pipelines.universal@a4f5be60db7e)
+    com.unity.textmeshpro@5.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.textmeshpro@53f43edfd2e0)
+    com.unity.ugui@2.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.ugui@4601c9db1b9b)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.ai)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.animation)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.assetbundle)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.cloth)
+    com.unity.modules.director@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.director)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.imageconversion)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.physics2d)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.screencapture)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.terrainphysics)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.tilemap)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.umbra)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.unityanalytics)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.unitywebrequestaudio)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.unitywebrequesttexture)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.unitywebrequestwww)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.vehicles)
+    com.unity.modules.video@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.video)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.vr)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.wind)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.xr)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.subsystems)
+    com.unity.modules.hierarchycore@1.0.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.modules.hierarchycore)
+    com.unity.render-pipelines.core@17.0.4 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.render-pipelines.core@ae070e0972dd)
+    com.unity.shadergraph@17.0.4 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.shadergraph@89df6040bb1d)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.render-pipelines.universal-config@dd206bf35d04)
+    com.unity.test-framework@1.6.0 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.test-framework@082c24152fd4)
+    com.unity.ext.nunit@2.0.5 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.ext.nunit@031a54704bff)
+    com.unity.rendering.light-transport@1.0.1 (location: C:\Users\rushi\Downloads\New folder\SlitherRoyale\Library\PackageCache\com.unity.rendering.light-transport@9bd588f963c0)
+[Package Manager] com.unity.textmeshpro is deprecated: This package is no longer supported. TextMeshPro functionalities are now included in the com.unity.ugui package. To continue using them, consider adding it to your project dependencies.
+[Subsystems] No new subsystems found in resolved package list.
+[Package Manager] Done registering packages in 0.05 seconds
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.78f1\Editor\Data\bee_backend.exe --ipc --defer-dag-verification --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: C:/Users/rushi/Downloads/New folder/SlitherRoyale
+DisplayProgressbar: Compiling Scripts
+ExitCode: 0 Duration: 5s63ms
+[563/712    0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[696/712    0s] Csc Library/Bee/artifacts/1900b0aE.dag/WormCore.dll (+2 others)
+[697/712    0s] Csc Library/Bee/artifacts/1900b0aE.dag/WormCore.Tests.dll (+2 others)
+[698/712    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/WormCore.Tests.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/WormCore.Tests.dll, with 129 defines and 134 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[699/712    0s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/WormCore.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/WormCore.dll, with 131 defines and 127 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[700/712    0s] CopyFiles Library/ScriptAssemblies/WormCore.pdb
+[701/712    0s] CopyFiles Library/ScriptAssemblies/WormCore.Tests.dll
+[702/712    0s] CopyFiles Library/ScriptAssemblies/WormCore.Tests.pdb
+[703/712    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Client\Gameplay\NetworkedGameManager.cs(48,29): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Client\Gameplay\GameManager.cs(665,26): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Client\Gameplay\GameManager.cs(839,26): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Client\UI\ScreenManager.cs(32,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+
+Assets\Client\UI\FriendsListScreen.cs(141,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Assets\Client\UI\ResultsScreen.cs(22,22): warning CS0414: The field 'ResultsScreen._rewardsDoubled' is assigned but its value is never used
+[704/712    0s] CopyFiles Library/ScriptAssemblies/WormCore.dll
+[705/712    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[706/712    2s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp-Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll, with 129 defines and 331 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[707/712    2s] ILPostProcess Library/Bee/artifacts/1900b0aE.dag/post-processed/Assembly-CSharp.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll, with 131 defines and 300 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[708/712    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+[709/712    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[710/712    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[711/712    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+*** Tundra build success (5.00 seconds), 17 items updated, 712 evaluated
+Assets\Client\Gameplay\NetworkedGameManager.cs(48,29): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Client\Gameplay\GameManager.cs(665,26): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Client\Gameplay\GameManager.cs(839,26): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Client\UI\ScreenManager.cs(32,17): warning CS0618: 'Object.FindObjectOfType<T>()' is obsolete: 'Object.FindObjectOfType has been deprecated. Use Object.FindFirstObjectByType instead or if finding any instance is acceptable the faster Object.FindAnyObjectByType'
+Assets\Client\UI\FriendsListScreen.cs(141,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+Assets\Client\UI\ResultsScreen.cs(22,22): warning CS0414: The field 'ResultsScreen._rewardsDoubled' is assigned but its value is never used
+AssetDatabase: script compilation time: 6.140882s
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 15.262 seconds
+Refreshing native plugins compatible for Editor in 47.35 ms, found 4 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.77 ms, found 4 plugins.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  5.289 seconds
+Domain Reload Profiling: 20545ms
+	BeginReloadAssembly (392ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (16ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (151ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (14761ms)
+		LoadAssemblies (13205ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1704ms)
+			TypeCache.Refresh (1639ms)
+				TypeCache.ScanAssembly (1546ms)
+			BuildScriptInfoCaches (50ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (5289ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (5014ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (35ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (165ms)
+			ProcessInitializeOnLoadAttributes (4666ms)
+			ProcessInitializeOnLoadMethodAttributes (128ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Refreshing native plugins compatible for Editor in 5.54 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=866f5243cccdbd14fbdf73d361358390): Total: 29.248 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=6106 ms
+		Asset DB Callback time: managed=1595 ms, native=92 ms
+		Scripting: domain reloads=1, domain reload time=15262 ms, compile time=6145 ms, other=45 ms
+		Project Asset Count: scripts=941, non-scripts=1789
+		Asset File Changes: new=0, changed=4, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.003ms
+	InvokePackagesCallback: 70.210ms
+	ApplyChangesToAssetFolders: 1.238ms
+	Scan: 227.436ms
+	OnSourceAssetsModified: 1.655ms
+	CategorizeAssetsWithTransientArtifact: 117.432ms
+	ProcessAssetsWithTransientArtifactChanges: 68.209ms
+	CategorizeAssets: 107.514ms
+	ImportOutOfDateAssets: 5358.056ms (-789.488ms without children)
+		CompileScripts: 6145.177ms
+		ReloadNativeAssets: 0.014ms
+		UnloadImportedAssets: 0.453ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.751ms
+		InitializingProgressBar: 0.001ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.001ms
+		OnDemandSchedulerStart: 1.148ms
+	PostProcessAllAssets: 1606.050ms
+	Hotreload: 13.460ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.815ms
+	UnloadStreamsBegin: 2.796ms
+	PersistCurrentRevisions: 0.143ms
+	UnloadStreamsEnd: 0.002ms
+	GenerateScriptTypeHashes: 5.104ms
+	Untracked: 21672.926ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 4.530ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-SlitherRoyale
+Unloading 110 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3855 unused Assets / (4.1 MB). Loaded Objects now: 4527.
+Memory consumption went from 165.8 MB to 161.8 MB.
+Total: 22.726500 ms (FindLiveObjects: 0.737800 ms CreateObjectMapping: 0.855900 ms MarkObjects: 14.400800 ms  DeleteObjects: 6.729200 ms)
+
+Batchmode quit successfully invoked - shutting down!
+Curl error 42: Callback aborted
+Killing ADB server in 0.5831545 seconds.
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+[Licensing::IpcConnector] LicenseClient-rushi-notifications channel disconnected successfully.
+[Licensing::IpcConnector] LicenseClient-rushi channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

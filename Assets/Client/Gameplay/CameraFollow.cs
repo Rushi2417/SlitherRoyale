@@ -18,13 +18,16 @@ namespace SlitherRoyale.Client.Gameplay
             _cam = GetComponent<Camera>();
         }
 
-        public void SetTarget(float x, float y)
+        public void SetTarget(float x, float y, float mass)
         {
+            if (_cam == null) _cam = GetComponent<Camera>();
+            if (_cam == null) return;
+
             Vector3 targetPos = new Vector3(x, y, _cam.transform.position.z);
             _cam.transform.position = Vector3.SmoothDamp(
                 _cam.transform.position, targetPos, ref _velocity, smoothTime);
 
-            float targetSize = Mathf.Min(baseOrthoSize, maxOrthoSize);
+            float targetSize = Mathf.Min(baseOrthoSize + mass * sizePerMass, maxOrthoSize);
             _cam.orthographicSize = Mathf.SmoothDamp(
                 _cam.orthographicSize, targetSize, ref _sizeVelocity, 0.5f);
         }

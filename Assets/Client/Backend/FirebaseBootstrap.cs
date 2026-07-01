@@ -7,6 +7,8 @@ namespace SlitherRoyale.Client.Backend
 {
     public static class FirebaseBootstrap
     {
+        public static bool IsInitialized { get; private set; }
+
         public static async System.Threading.Tasks.Task<bool> InitializeAsync()
         {
             var dependencyStatus = await FirebaseApp.CheckAndFixDependenciesAsync();
@@ -14,6 +16,7 @@ namespace SlitherRoyale.Client.Backend
             {
                 FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
                 Crashlytics.IsCrashlyticsCollectionEnabled = true;
+                IsInitialized = true;
                 Debug.Log("[Firebase] Initialized successfully");
                 LogTestEvent();
                 return true;

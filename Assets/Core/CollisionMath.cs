@@ -19,7 +19,7 @@ namespace WormCore
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static CollisionResult HeadVsBody(
+        public static bool HeadVsBody(
             float headX, float headY, float headRadius,
             float bodySegmentX, float bodySegmentY, float bodyRadius)
         {
@@ -27,18 +27,22 @@ namespace WormCore
             float dy = headY - bodySegmentY;
             float distSq = dx * dx + dy * dy;
             float radiusSum = headRadius + bodyRadius;
-            return distSq <= radiusSum * radiusSum ? CollisionResult.HeadHitBody : CollisionResult.None;
+            return distSq <= radiusSum * radiusSum;
         }
 
+        /// <summary>
+        /// Head-vs-head collision. Pass actual head radii for each worm
+        /// (computed from WormState.HeadRadius()) instead of a hardcoded formula.
+        /// </summary>
         public static HeadOnCollisionResult HeadVsHead(
-            float headAX, float headAY, float massA,
-            float headBX, float headBY, float massB,
+            float headAX, float headAY, float headRadiusA, float massA,
+            float headBX, float headBY, float headRadiusB, float massB,
             float equalMassThreshold = EqualMassThreshold)
         {
             float dx = headAX - headBX;
             float dy = headAY - headBY;
             float distSq = dx * dx + dy * dy;
-            float radiusSum = 12f + (massA + massB) * 0.02f;
+            float radiusSum = headRadiusA + headRadiusB;
             if (distSq > radiusSum * radiusSum)
                 return HeadOnCollisionResult.None;
 
@@ -50,10 +54,17 @@ namespace WormCore
             return HeadOnCollisionResult.BothDie;
         }
 
-        public enum CollisionResult
+        /// <summary>Legacy overload for server compatibility — uses approximate radii.</summary>
+        public static HeadOnCollisionResult HeadVsHead(
+            float headAX, float headAY, float massA,
+            float headBX, float headBY, float massB,
+            float equalMassThreshold = EqualMassThreshold)
         {
-            None,
-            HeadHitBody
+            float headRadiusA = 6f + massA * 0.02f;
+            float headRadiusB = 6f + massB * 0.02f;
+            return HeadVsHead(headAX, headAY, headRadiusA, massA,
+                              headBX, headBY, headRadiusB, massB,
+                              equalMassThreshold);
         }
 
         public enum HeadOnCollisionResult

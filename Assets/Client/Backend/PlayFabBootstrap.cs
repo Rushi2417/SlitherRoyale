@@ -18,9 +18,12 @@ namespace SlitherRoyale.Client.Backend
 
             var request = new LoginWithCustomIDRequest
             {
-                CustomId = SystemInfo.deviceUniqueIdentifier,
+                // BUG-18 FIX: SystemInfo.deviceUniqueIdentifier is deprecated on iOS 16+
+                // and returns a different value each install, losing all player progress.
+                // We generate a stable UUID once and persist it in PlayerPrefs.
+                CustomId    = GetOrCreateGuestId(),
                 CreateAccount = true,
-                TitleId = PlayFabSettings.TitleId
+                TitleId     = PlayFabSettings.TitleId
             };
 
             PlayFabClientAPI.LoginWithCustomID(request, result =>
@@ -37,6 +40,23 @@ namespace SlitherRoyale.Client.Backend
             });
 
             return await tcs.Task;
+        }
+
+        /// <summary>
+        /// Returns a stable guest ID that survives app restarts.
+        /// Generated once as a GUID and persisted in PlayerPrefs.
+        /// BUG-18 FIX: replaces SystemInfo.deviceUniqueIdentifier which is deprecated
+        /// on iOS 16+ and randomizes on each install (all progress lost on reinstall).
+        /// </summary>
+        private static string GetOrCreateGuestId()
+        {
+            const string key = "SlitherRoyale_GuestId";
+            if (!PlayerPrefs.HasKey(key))
+            {
+                PlayerPrefs.SetString(key, Guid.NewGuid().ToString("N"));
+                PlayerPrefs.Save();
+            }
+            return PlayerPrefs.GetString(key);
         }
     }
 }
