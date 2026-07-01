@@ -245,6 +245,7 @@ namespace SlitherRoyale.Client.Backend
             public string key;
             public int value;
         }
+    }
 
     public class QuestProgress
     {
