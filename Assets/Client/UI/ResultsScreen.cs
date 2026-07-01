@@ -26,6 +26,7 @@ namespace SlitherRoyale.Client.UI
 
         private int  _baseCoins;
         private int  _baseBPXP;
+        private bool _rewardsDoubled;
 
         protected override void Awake()
         {

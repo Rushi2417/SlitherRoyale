@@ -62,6 +62,11 @@ namespace SlitherRoyale.Client.Gameplay
         private float _boostPelletTimer;
         private const float BoostPelletInterval = 0.15f;
 
+        // Speed pad temporary boost
+        private float _speedPadBoostTimer;
+        private const float SpeedPadBoostDuration = 1.5f;
+        private const float SpeedPadBoostMultiplier = 1.4f;
+
         // BUG-07 FIX: timer-based giant pellet respawn (replaces frame-rate-dependent Random check)
         private float _giantPelletRespawnTimer = 8f;
 
